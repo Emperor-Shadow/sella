@@ -179,3 +179,17 @@ function delete_from_cart (id) {
     }
 });
 }
+
+
+//expand function to fetch the specific data when the expand button is clicked
+expand = (id) => {
+    $.ajax({
+      type: "POST",
+      url: "expand.php",
+      data: {"id" : id},
+      dataType: "json",
+      success: function (response) {
+        console.log(response[0]);
+      }
+    });
+}

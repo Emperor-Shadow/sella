@@ -179,11 +179,11 @@
               </div>
             </div>
           </div>
-          <!-- RELATED PRODUCTS-->
+          <!-- RELATED PRODUCTS
           <h2 class="h5 text-uppercase mb-4">Related products</h2>
           <div class="row">
             <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
+            <!-- <div class="col-lg-3 col-sm-6">
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.php"><img class="img-fluid w-100" src="img/product-1.jpg" alt="..."></a>
                   <div class="product-overlay">
@@ -197,9 +197,9 @@
                 <h6> <a class="reset-anchor" href="detail.php">Kui Ye Chen’s AirPods</a></h6>
                 <p class="small text-muted">$250</p>
               </div>
-            </div>
+            </div> -->
             <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
+            <!-- <div class="col-lg-3 col-sm-6">
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.php"><img class="img-fluid w-100" src="img/product-2.jpg" alt="..."></a>
                   <div class="product-overlay">
@@ -213,9 +213,9 @@
                 <h6> <a class="reset-anchor" href="detail.php">Air Jordan 12 gym red</a></h6>
                 <p class="small text-muted">$300</p>
               </div>
-            </div>
+            </div> -->
             <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
+            <!-- <div class="col-lg-3 col-sm-6">
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.php"><img class="img-fluid w-100" src="img/product-3.jpg" alt="..."></a>
                   <div class="product-overlay">
@@ -229,9 +229,9 @@
                 <h6> <a class="reset-anchor" href="detail.php">Cyan cotton t-shirt</a></h6>
                 <p class="small text-muted">$25</p>
               </div>
-            </div>
+            </div> -->
             <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
+            <!-- <div class="col-lg-3 col-sm-6">
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.php"><img class="img-fluid w-100" src="img/product-4.jpg" alt="..."></a>
                   <div class="product-overlay">
@@ -245,10 +245,10 @@
                 <h6> <a class="reset-anchor" href="detail.php">Timex Unisex Originals</a></h6>
                 <p class="small text-muted">$351</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-      </section>
+      </section> 
       <footer class="bg-dark text-white">
         <div class="container py-4">
           <div class="row py-5">

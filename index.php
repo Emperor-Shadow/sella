@@ -88,6 +88,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="icons/all.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
     
@@ -312,7 +313,7 @@
             <?php
             function five ($connection) {
             
-                $fetch_goods = "SELECT * FROM products LIMIT 3";
+                $fetch_goods = "SELECT * FROM products LIMIT 4";
                 $run_fetch = mysqli_query($connection , $fetch_goods);
                 $row = mysqli_affected_rows($connection);
               
@@ -357,16 +358,16 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6" >
                         <div class="product text-center">
                           <div class="position-relative mb-3">
-                            <div class="badge text-white bg-primary">Sale</div><a style = "height: 300px;" class="d-inline-block" href="detail.php?product_id='.+ $fetch_result['id'].'"><img class="img-fluid w-100 h-100" style = "object-fit: contain;" src="product_images/'.$fetch_result['product_picture'].'" alt="..."></a>
+                            <div class="badge text-white bg-primary">Sale</div><a style = "height: 300px; width: 100%" class="d-inline-block" ><img class="img-fluid w-100 h-100" style = "object-fit: cover;" src="product_images/'.$fetch_result['product_picture'].'" alt="..."></a>
                             <div class="product-overlay">
                               <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href=""><img src="icons/heart.svg" alt="" style="height: 15px;"></a></li>
+                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href=""> <i class="fas fa-heart">  </i> </a></li>
                                 <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark add-to-cart-'.$fetch_result['id'].'" id="add-to-cart" onclick = "add_to_cart('.$fetch_result['id'].')" >'.$btn_message.'</a></li>
-                                <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                                <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand" onclick ="expand('.$fetch_result['id'].')"></i></a></li>
                               </ul>
                             </div>
                           </div>
-                          <h6> <a class="reset-anchor" href="detail.php">'.$fetch_result['product_name'].'</a></h6>
+                          <h6> <a class="reset-anchor" href="detail.php?product_id='.+ $fetch_result['id'].'">'.$fetch_result['product_name'].'</a></h6>
                           <p class="small text-muted">'.dollar.$fetch_result['product_new_price'].'</p>
                         </div>
                       </div>

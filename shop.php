@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
   </head>
