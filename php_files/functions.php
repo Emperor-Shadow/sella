@@ -132,9 +132,9 @@ function totalise ($user_id , $connection) {
               <div class="badge text-white bg-danger" >-'.$fetch_result['discount'].percent.'</div><a class="d-block" style = "height: 150px;"><img class="img-fluid w-100 h-100" style="object-fit: cover;" src="product_images/'.$fetch_result['product_picture'].'" alt="..."></a>
               <div class="product-overlay">
                 <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="fas fa-heart"></i></a></li>
+                  <!--- <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="fas fa-heart"></i></a></li> --->
                   <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark add-to-cart-'.$fetch_result['id'].'" onclick = "add_to_cart('.$fetch_result['id'].')">'.$btn_message.'</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                  <!--- <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand" onclick ="expand1('.$fetch_result['id'].')"></i></a></li> -->
                 </ul>
               </div>
             </div>

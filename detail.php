@@ -1,9 +1,13 @@
-<?php 
+<?php if (!$_GET['product_id']> 0) {
+  echo "<script> window.history.back() </script>";
+    }
     require_once("php_files/connection.php");
     require_once("php_files/functions.php");
 
 
     $id = (int)$_GET['product_id'];
+
+    
 
     $query = "SELECT * FROM products WHERE id = $id";
     $run_fetch = mysqli_query($connection  , $query);
@@ -51,7 +55,7 @@
       <?php require_once('nav.php'); ?>
 
       <!--  Modal -->
-      <div class="modal fade" id="productView" tabindex="-1">
+      <!-- <div class="modal fade" id="productView" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content overflow-hidden border-0">
             <button class="btn-close p-4 position-absolute top-0 end-0 z-index-20 shadow-0" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -67,9 +71,9 @@
                       <li class="list-inline-item m-0 3"><i class="fas fa-star small text-warning"></i></li>
                       <li class="list-inline-item m-0 4"><i class="fas fa-star small text-warning"></i></li>
                     </ul>
-                    <h2 class="h4">Red digital smartwatch</h2>
-                    <p class="text-muted">$250</p>
-                    <p class="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.</p>
+                    <h2 class="h4 prod_name1"></h2>
+                    <p class="text-muted prod_pr1"></p>
+                    <p class="text-sm mb-4 prod_des1"></p>
                     <div class="row align-items-stretch mb-4 gx-0">
                       <div class="col-sm-7">
                         <div class="border d-flex align-items-center justify-content-between py-1 px-3"><span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
@@ -80,15 +84,15 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-sm-5"><a class="btn btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center px-0" href="cart.html">Add to cart</a></div>
-                    </div><a class="btn btn-link text-dark text-decoration-none p-0" href="#!"><i class="far fa-heart me-2"></i>Add to wish list</a>
+                      <div class="col-sm-5"><a class="btn btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center px-0 addt" >Add to cart</a></div>
+                    </div><a class="btn btn-link text-dark text-decoration-none p-0" ><i class="far fa-heart me-2"></i>Add to wish list</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <section class="py-5">
         <div class="container">
           <div class="row mb-5">
@@ -99,7 +103,7 @@
                 <div class="col-sm-10 order-1 order-sm-2">
                   <div class="swiper product-slider">
                     <div class="swiper-wrapper" style="height: 400px;">
-                      <div class="swiper-slide h-100"><a class="glightbox product-view" href="product_images/<?php echo $result['product_picture']; ?>" ><img class="img-fluid h-100 w-100" style="object-fit: cover;" src="product_images/<?php echo $result['product_picture']; ?>" class="h-100" alt="..."></a></div>
+                      <div class=" h-100"><a class="glightbox product-view" href="product_images/<?php echo $result['product_picture']; ?>" ><img class="img-fluid h-100 w-100" style="object-fit: cover;" src="product_images/<?php echo $result['product_picture']; ?>" class="h-100" alt="..."></a></div>
                     </div>
                   </div>
                 </div>

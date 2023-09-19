@@ -4,15 +4,15 @@
    $user_id = $_SESSION['id'];
    $user_type = $_SESSION['user_type'];
 
-   if ($user_type == 'guest') {
-    echo '<script> 
-    var typ0 = "guest";
-     </script>';
-   } else {
-    echo '<script> 
-    var typ0 = "standard";
-     </script>';
-   }
+  //  if ($user_type == 'guest') {
+  //   echo '<script> 
+  //   var typ0 = "guest";
+  //    </script>';
+  //  } else {
+  //   echo '<script> 
+  //   var typ0 = "standard";
+  //    </script>';
+  //  }
    
    $count = $_SESSION['count'];
 
@@ -56,7 +56,7 @@
     <!--- signup form --->
 
       <!--  Modal -->
-      <div class="modal fade" id="productView" tabindex="-1">
+      <!-- <div class="modal fade" id="productView" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content overflow-hidden border-0">
             <button class="btn-close p-4 position-absolute top-0 end-0 z-index-20 shadow-0" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -93,7 +93,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="container">
         <!-- HERO SECTION-->
         <section class="py-5 bg-light">
@@ -119,7 +119,7 @@
           <h2 class="h5 text-uppercase mb-4">Billing details</h2>
           <div class="row">
             <div class="col-lg-8">
-              <form action="#">
+              <form action="#" class="checkf">
                 <div class="row gy-3">
                   <div class="col-lg-6">
                     <label class="form-label text-sm text-uppercase" for="firstName">First name </label>
@@ -371,7 +371,7 @@
     </div>
 
 
-    <div class="sign-guest gform" id="ffr">
+    <!-- <div class="sign-guest gform" id="ffr">
       <form action="" method="POST">
          <div class="form-label">  
           <label for="">First Name</label>
@@ -413,24 +413,35 @@
       <button class="btn btn-success p-2 rounded mb-1 sub" type="submit" name="sign_up">Sign up</button>
       <a class="btn btn-success p-2 rounded mb-1 log">Login</a>
       </form>
-    </div>
+    </div> -->
 
 
   </body>
   <script defer>
     
+   $('.checkf').on('submit' , (e)=> {
+
+    $.ajax({
+      type: "POST",
+      url: "check.php",
+      data: "",
+      dataType: "JSON",
+      success: function (response) {
+            alert('Check your email for your tracking id. Thanks for your patronage :)')
+      } , error : function (response) { 
+        alert('Something went wrong');
+       }
+    });
+   })
+
+  // if ( !typ0 === 'guest' ) {
+  //   var frog = document.querySelector(' .sign-guest');
+  //   frog.setAttribute('class' , 'd-block') ;
+
+  //   $('login-guest').show();
    
-
-  if ( !typ0 === 'guest' ) {
-    var frog = document.querySelector(' .sign-guest');
-    frog.setAttribute('class' , 'd-block') ;
-
-    $('login-guest').show();
-   
-  } else { 
-  
-
-  }
+  // } else { 
+  // }
 
 
   // off = () => {

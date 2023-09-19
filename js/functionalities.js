@@ -189,7 +189,20 @@ expand = (id) => {
       data: {"id" : id},
       dataType: "json",
       success: function (response) {
-        console.log(response[0]);
+
+        console.log('Done');
+        // console.log(response[1] , response[4] , response[3]);
+        $('.prod_name1').text(response[1]);
+        $('.prod_pr1').text('$' + response[4]);
+        $('.prod_des1').text(response[3]);
+        document.querySelector('.gtb').setAttribute('src', 'product_images/'+response[8]);
+
+        document.querySelector('.gtt').setAttribute('href', 'product_images/'+response[8]);
+
+        document.querySelector('.gtg').setAttribute('href', 'product_images/'+response[8]);
+
+        document.querySelector('.gtt').setAttribute('style', "background-image : url('product_images/"+ response[8] +"')")
+        $('.gtt').css({ "background-image" : "img/product-1"})
       }
     });
 }
