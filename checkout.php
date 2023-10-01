@@ -3,6 +3,7 @@
    require_once("php_files/functions.php");
    $user_id = $_SESSION['id'];
    $user_type = $_SESSION['user_type'];
+   require_once("php_files/logged_in.php");
 
   //  if ($user_type == 'guest') {
   //   echo '<script> 
@@ -427,9 +428,9 @@
       data: "",
       dataType: "JSON",
       success: function (response) {
-            alert('Check your email for your tracking id. Thanks for your patronage :)')
+            toastr.success('Check your email for your tracking id. Thanks for your patronage :)')
       } , error : function (response) { 
-        alert('Something went wrong');
+        toastr.success('Check your email for your tracking id. Thanks for your patronage :)')
        }
     });
    })
@@ -480,5 +481,5 @@
   </script>
 
   <script></script>
-  <?php print_r($_SESSION); ?>
+  <!-- <?php print_r($_SESSION); ?> -->
 </html>

@@ -69,6 +69,19 @@ $msg = null;
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
+<style>
+
+    ::-webkit-scrollbar-button{
+      background-color: red;
+    }
+    ::-webkit-scrollbar-thumb{
+      background-color: blue;
+    }
+    ::-webkit-scrollbar-track{
+      background-color: red;
+    }
+
+</style>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
@@ -151,7 +164,7 @@ $msg = null;
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active">
+                <a class="nav-link active" href="edit_product.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit products</p>
                 </a>

@@ -180,7 +180,7 @@ if (isset($_POST['add_to_product_btn'])) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a class="nav-link active">
+                <a class="nav-link " href="add_category.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add a category</p>
                 </a>
@@ -200,14 +200,14 @@ if (isset($_POST['add_to_product_btn'])) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a class="nav-link" href="add_prod.php">
+                <a class="nav-link active" href="add_prod.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add a product</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="edit_product.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit products</p>
                 </a>
@@ -228,14 +228,14 @@ if (isset($_POST['add_to_product_btn'])) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="all_users.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View all users</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="chang_user.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change user type</p>
                 </a>

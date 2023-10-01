@@ -1,6 +1,6 @@
 <?php
   $user_id = $_SESSION['id'];
-
+  require_once("php_files/logged_in.php");
 $amount_in_cart_query = "SELECT COUNT(*) FROM cart WHERE customer_id = '$user_id'";
 
 $amount_result = mysqli_query($connection , $amount_in_cart_query);

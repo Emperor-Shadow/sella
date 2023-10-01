@@ -2,12 +2,13 @@
     require_once("php_files/connection.php");
     require_once("php_files/functions.php");
 
+
    $user_id = $_SESSION['id'];
     $fname = $_SESSION['fname'];
     $lname = $_SESSION['lname'];
     $email = $_SESSION['email'];
     $user_type = $_SESSION['user_type'];
-
+    require_once("php_files/logged_in.php");
   //   header('URL : login.php');
         if (!$user_id > 0) {
         session_destroy();
@@ -219,7 +220,6 @@
                             <div class="badge text-white bg-primary">Sale</div><a style = "height: 300px; width: 100%" class="d-inline-block" ><img class="img-fluid w-100 h-100" style = "object-fit: cover;" src="product_images/'.$fetch_result['product_picture'].'" alt="..."></a>
                             <div class="product-overlay">
                               <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href=""> <i class="fas fa-heart">  </i> </a></li>
                                 <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark add-to-cart-'.$fetch_result['id'].'" id="add-to-cart" onclick = "add_to_cart('.$fetch_result['id'].')" >'.$btn_message.'</a></li>
                                 <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand" onclick ="expand('.$fetch_result['id'].')"></i></a></li>
                               </ul>

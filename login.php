@@ -11,7 +11,10 @@ $message = null;
 //if submit button has been clicked, get all informations from the POST array
 if (isset($_POST['submit'])) { 
     $email = sanitize($_POST['email']);  
-    $pass = sanitize($_POST['pass']);
+    $pass = sanitize($_POST['pass']); 
+
+    
+    // die(print_r($_COOKIE));
 
     // echo(password_verify($pass, $row['password']));
 
@@ -38,6 +41,11 @@ if (isset($_POST['submit'])) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['user_type'] = $row['user_type'];
                     $message = success_msg("Login success");
+
+                    if (isset($_POST['remember'])) {
+                      setcookie('email' , $row['email'] , 0);
+                      setcookie('id' , $row['id'] , 0);
+                }
                      header('Location: index.php');
                     // header('URL: login.php');
                     // session_redir
@@ -134,7 +142,7 @@ if (isset($_POST['submit'])) {
                       <!-- end col -->
                       <div class="col-12">
                         <div class="form-check checkbox-style mb-30">
-                          <input class="form-check-input" type="checkbox" value="" id="checkbox-not-robot" />
+                          <input class="form-check-input" type="checkbox" name="remember" value="" id="checkbox-not-robot" />
                           <label class="form-check-label" for="checkbox-not-robot">
                             Remember me</label>
                         </div>

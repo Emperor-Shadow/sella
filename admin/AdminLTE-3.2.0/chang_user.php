@@ -151,7 +151,7 @@ $msg = null;
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="edit_product.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit products</p>
                 </a>

@@ -81,7 +81,7 @@
       </div> -->
       <div class="container">
         <!-- HERO SECTION-->
-        <section class="py-5 bg-light">
+        <section class="py-5 bg-light mt-5">
           <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
               <div class="col-lg-6">
@@ -102,9 +102,9 @@
           <div class="container p-0">
             <div class="row">
               <!-- SHOP SIDEBAR-->
-              <div class="col-lg-3 order-2 order-lg-1">
+              <div class="col-lg-3 order-1 order-lg-1">
                 <h5 class="text-uppercase mb-4">Categories</h5>
-                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold">ALL</strong></div>
+                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold" onclick="showAll()">ALL</strong></div>
                 <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
 
    
@@ -131,9 +131,9 @@
                
               </div>
               <!-- SHOP LISTING-->
-              <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+              <div class="col-lg-9 order-2 order-lg-2 mb-5 mb-lg-0"style="margin-left: -5px;">
                 <div class="row mb-3 align-items-center">
-                  <div class="col-lg-6 mb-2 mb-lg-0">
+                  <div class="col-lg-6 mb-2 mb-lg-0" >
                     <p class="text-sm text-muted mb-0 showy">Showing all results</p>
                   </div>
                  

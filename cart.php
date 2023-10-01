@@ -3,7 +3,7 @@
     require_once("php_files/functions.php");
     $user_id = $_SESSION['id'];
     $user_type = $_SESSION['user_type'];
-    
+    require_once("php_files/logged_in.php");
     $count = $_SESSION['count'];
 
     totalise($user_id ,$connection);

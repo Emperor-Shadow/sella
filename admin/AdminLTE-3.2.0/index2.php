@@ -117,12 +117,12 @@
               <p>
                Users
                 <i class="right fas fa-angle-left"></i>
-                <span class="badge badge-info right">2</span>
+                <span class="badge badge-info right">3</span>
 
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item" href="all_users.php">
                 <a class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View all users</p>
@@ -130,9 +130,16 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="chang_user.php">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change user type</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="delete_user.php">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Delete user</p>
                 </a>
               </li>
               

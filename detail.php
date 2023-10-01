@@ -1,4 +1,5 @@
-<?php if (!$_GET['product_id']> 0) {
+<?php 
+if (!$_GET['product_id']> 0) {
   echo "<script> window.history.back() </script>";
     }
     require_once("php_files/connection.php");

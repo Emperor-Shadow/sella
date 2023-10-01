@@ -1,5 +1,7 @@
 //add to cart ajax code start//
 function add_to_cart(id) {
+
+  // alert($('.add-to-cart-'+id).text())
       
     if ($('.add-to-cart-'+id).text() === "Add to cart") {
     
@@ -71,6 +73,81 @@ function add_to_cart(id) {
 
 
 
+//add2 to cart ajax code start//
+function add_to_cart2(id) {
+
+  // alert($('.add-to-cart2-'+id).text())
+      
+    if ($('.add-to-cart2-'+id).text() === "Add to cart") {
+    
+      $.ajax({
+        type: "POST",
+        url: "add_to_cart.php",
+        data: {
+            'product_id' : id
+        },
+        dataType: "json",
+        success: function (response) {
+         
+            if (response.message == "added") {
+              
+              let count = response.count
+              
+              $('.count').text(count);
+              
+                $('.add-to-cart2-'+id).text("Remove")
+
+                console.log('add to cart')
+                
+            } else if (response.message == "in-cart") {
+              $('.add-to-cart2-'+id).text("Remove")
+              console.log('add to cart')
+            }
+              
+          
+         
+        } ,
+        error: function (response) {
+          console.log(response)
+                     
+          }
+    });
+    
+    } else {
+      
+        $.ajax({
+        type: "POST",
+        url: "delete_from_cart.php",
+        data: {
+            'product_id' : id
+        },
+        dataType: "json",
+        success: function (response) {
+            if (response.status == "success") {
+
+              console.log(response)
+              
+              $('.count').text(response.count);
+                $('.add-to-cart2-'+id).text("Add to cart")
+
+            } else {
+              alert('failed')
+            }
+         
+        } ,
+        error: function (response) {
+          
+          alert('Remove failed')
+            
+          }
+    })
+    }
+}
+//add to cart2 ajax code end//
+
+
+
+
 //show goods when category is clicked code start//
 function showGoods(id){
   
@@ -91,6 +168,27 @@ function showGoods(id){
   });
 }
 //show goods when category is clicked code end//
+
+
+
+//show goods when all category is clicked code start//
+function showAll(){
+  
+  $.ajax({
+      type: "POST",
+      url: "  show_all.php",
+      dataType: "text",
+      success: function (response) {
+         $('.products').html(response);
+         $('.showy').text('Showing all results');
+      } ,
+      error: function (response) {
+          alert('Something went wrong');
+        }
+  });
+}
+//show goods when all category is clicked code end//
+
 
 
 //increase quantity plus one start//
