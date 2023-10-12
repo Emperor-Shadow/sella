@@ -281,6 +281,7 @@ $msg = null;
                         <td class = "stock'.$result['id'].'" contenteditable>'.$result['product_stock_quantity'].'</td>
                         <td class = "discount'.$result['id'].'" contenteditable>'.$result['discount'].'</td>
                         <td class = ""><button class = "btn btn-success" onclick = "save('.$result['id'].')">Save</button></td>
+                        <td class = ""><button class = "btn btn-success" onclick = "del('.$result['id'].')">Save</button></td>
                       </tr>
                         ';   
                     } 
@@ -418,6 +419,31 @@ $msg = null;
         });
     
     }
+
+
+    del = (id) => {
+      if (confirm('Disastrous action. Are you sure? :(')) {
+ $.ajax({
+            type: "POST",
+            url: "del_prod.php",
+            data:  {
+                'id' : id
+            },
+            dataType: "json",
+            success: function (response) {
+
+                toastr.success('Deletion successful');
+                
+            } , error: function (response) {
+              toastr.error('SOmething went wrong');
+            }
+        });
+    
+    } else {
+      toastr.success('Phew! Close call :)');
+    }
+      }
+       
 
 
 </script>
