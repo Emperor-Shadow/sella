@@ -239,7 +239,7 @@ if (isset($_POST['add_cat'])) {
                 <div class="card-body">
                   <div class="form-group">
                     <label for="">Type a category</label>
-                    <input type="text" name="category_name" class="form-control text-black" id="" placeholder="enter a category name">
+                    <input required type="text" name="category_name" class="form-control text-black" id="" placeholder="enter a category name">
                   </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -284,14 +284,6 @@ if (isset($_POST['add_cat'])) {
 
 
                     while ($result = mysqli_fetch_assoc($run_query)) {
-                //     echo '
-                //     <form class="p-3 form-'.$result['id'].'">
-                //     <input type="text" class="input-'.$result['id'].'" name=""  value="'.$result['category_name'].'" style="background: transparent; color: white;">
-                //     <span id="edit" class="editw edit-'.$result['id'].'" onclick = "edit('.$result['id'].')">Edit</span>
-                //     <span class="del bg-red-500" onclick="deleteCat('.$result['id'].')">Delete</span>
-                // </form>
-                //     ';
-
                 echo '
                 <form class="form-'.$result['id'].'">
                  <tr class="tt-'.$result['id'].'">
@@ -313,7 +305,8 @@ if (isset($_POST['add_cat'])) {
                     echo "No category found";
 }
                 
-                
+            // mysqli_free_result($result);
+            ob_end_flush();
                 ?>
 
                  

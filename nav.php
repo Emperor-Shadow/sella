@@ -30,6 +30,10 @@ if (isset($_POST['logout'])) {
                 <li class="nav-item">
                   <!-- Link--><a class="nav-link" href="shop.php"> <i class="fa fa-shop d-md-none"></i> Shop</a>
                 </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-p d-md-none"></i> My Account</a>
+                  <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown"><a class="dropdown-item border-0 transition-link" href="profile.php">Profile</a>
+                  <a class="dropdown-item border-0 transition-link" href="cart.php">Cart</a><a class="dropdown-item border-0 transition-link" href="order.php">Orders</a></div>
+                </li>
                 <?php if ($_SESSION['user_type'] == 'admin') { echo '<li class="nav-item">
                   <!-- Link--><a class="nav-link" href="admin\AdminLTE-3.2.0/index2.php"> <i class="fa fa-user-secret d-md-none"></i> Admin Board</a>
                 </li>

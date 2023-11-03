@@ -26,8 +26,12 @@ if (isset($_POST['add_to_product_btn'])) {
      $product_quantity = (int) sanitize($_POST['product_quantity']);
      $product_discount = (int) sanitize($_POST['product_discount']);
      $product_picture = $_FILES['product_picture'];
-     
-     if ((int) $product_discount == 0) {
+
+
+     if (strlen($product_description) > 200) {
+        echo "<script> alert('Description must not exceed 200 characters') </script>";
+     } else {
+      if ((int) $product_discount == 0) {
         $product_old_price = $product_new_price;
      }
 
@@ -100,6 +104,9 @@ if (isset($_POST['add_to_product_btn'])) {
         echo '<script> toastr.error('.$msg.') </script>';
 
       }
+     }
+     
+     
 
     //  print_r($_FILES);
     //  print_r($_POST);
@@ -338,7 +345,7 @@ if (isset($_POST['add_to_product_btn'])) {
                 <input type="file" name="product_picture" class="form-control">
               </div>
 
-              <button class="btn btn-primary" name="add_to_product_btn" type="submit">Add product</button>
+              <button class="btn btn-primary subb" name="add_to_product_btn" type="submit">Add product</button>
               </form>
             </div>
             <!-- /.card-body -->
@@ -441,7 +448,9 @@ if (isset($_POST['add_to_product_btn'])) {
     
     }
 
-
+//  $('.subb').click( function (e) {
+//   e.preventDefault();
+//  } )
 </script>
 </body>
 </html>

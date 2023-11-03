@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     $lname = sanitize($_POST['lname']);
     $email = sanitize($_POST['email']);  
     $pass = sanitize($_POST['pass']);
+    $conf_pass = sanitize($_POST['conf_pass']);
     $user_type = 'standard';
 
 
@@ -25,38 +26,44 @@ if (isset($_POST['submit'])) {
 
 
 //turn the password into a hashed one
-            $pass = password_hash($pass , PASSWORD_BCRYPT);
+  if ($conf_pass == $pass ) {
+    $pass = password_hash($pass , PASSWORD_BCRYPT);
 
             
-            $check_email = "SELECT * FROM users WHERE email = ?";
-            $statement_check = mysqli_prepare($connection , $check_email);
-            mysqli_stmt_bind_param($statement_check , "s" ,  $email);
-            mysqli_stmt_execute($statement_check);
-            $check_result = mysqli_stmt_fetch($statement_check);
-            $check_num_row = mysqli_affected_rows($connection);
+    $check_email = "SELECT * FROM users WHERE email = ?";
+    $statement_check = mysqli_prepare($connection , $check_email);
+    mysqli_stmt_bind_param($statement_check , "s" ,  $email);
+    mysqli_stmt_execute($statement_check);
+    $check_result = mysqli_stmt_fetch($statement_check);
+    $check_num_row = mysqli_affected_rows($connection);
 
-            if ($check_num_row == 0) {
-            //a query to load user information into the database
-                        $register_user_query = "INSERT INTO users(`email` ,`fname`, `lname`, `password`, `user_type`) VALUES (?,?,?,?,?)";
-                        $stmt = mysqli_prepare($connection , $register_user_query);
-                        mysqli_stmt_bind_param($stmt , "sssss" , $email , $fname , $lname, $pass , $user_type );
-                        mysqli_stmt_execute($stmt);
-                        $row =mysqli_stmt_affected_rows($stmt);
+    if ($check_num_row == 0) {
+    //a query to load user information into the database
+                $register_user_query = "INSERT INTO users(`email` ,`fname`, `lname`, `password`, `user_type`) VALUES (?,?,?,?,?)";
+                $stmt = mysqli_prepare($connection , $register_user_query);
+                mysqli_stmt_bind_param($stmt , "sssss" , $email , $fname , $lname, $pass , $user_type );
+                mysqli_stmt_execute($stmt);
+                $row =mysqli_stmt_affected_rows($stmt);
 
-                                if ($row > 0) {
-                                    echo "registered";
-                                    $_SESSION['id'] = $row['id'];
-                                    $_SESSION['fname'] = $row['fname'];
-                                    $_SESSION['lname'] = $row['lname'];
-                                    $_SESSION['email'] = $row['email'];
-                                    $_SESSION['user_type'] = $row['user_type'];
-                                    header('location: index.php');
-                            } else {
-                                $message = error_msg("Something went wrong. try again");
-                            }                 
-                } else {
-                    $message = error_msg("Email already exist with us. Sign in instead");
-                }
+                        if ($row > 0) {
+                            echo "registered";
+                            $_SESSION['id'] = $row['id'];
+                            $_SESSION['fname'] = $row['fname'];
+                            $_SESSION['lname'] = $row['lname'];
+                            $_SESSION['email'] = $row['email'];
+                            $_SESSION['user_type'] = $row['user_type'];
+                            header('location: index.php');
+                    } else {
+                        $message = error_msg("Something went wrong. try again");
+                    }                 
+        } else {
+            $message = error_msg("Email already exist with us. Sign in instead");
+        }
+  } else {
+    $message = error_msg("Password does not match");
+
+  }
+          
 }
 ?>
 <!DOCTYPE html>
@@ -131,6 +138,12 @@ if (isset($_POST['submit'])) {
                         <div class="input-style-1">
                           <label>Password</label>
                           <input type="password" placeholder="Password" required name="pass" />
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="input-style-1">
+                          <label>Retype Password</label>
+                          <input type="password" placeholder="Password" required name="conf_pass" />
                         </div>
                       </div>
                       <!-- end col -->

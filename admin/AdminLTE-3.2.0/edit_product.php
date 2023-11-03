@@ -242,7 +242,7 @@ $msg = null;
 
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
+              <div class="card-body table-responsive p-0" style="height: 500px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>
@@ -253,7 +253,8 @@ $msg = null;
                       <th>Old price</th>
                       <th>Stock quantity</th>
                       <th >Discount</th>
-                      <th></th>
+                      <th>Save</th>
+                      <th>Delete</th>
 
                     </tr>
                   </thead>
@@ -275,13 +276,13 @@ $msg = null;
                         <tr>
                         <td class = "id'.$result['id'].'" >'.$result['id'].'</td>
                         <td class = "name'.$result['id'].'" contenteditable>'.$result['product_name'].'</td>
-                        <td class = "desc'.$result['id'].'" contenteditable>'.$result['product_description'].'</td>
+                        <td class = " text-wrap desc'.$result['id'].'" contenteditable>'.$result['product_description'].'</td>
                         <td class = "nprice'.$result['id'].'" contenteditable>'.$result['product_new_price'].'</td>
                         <td class = "oprice'.$result['id'].'" contenteditable>'.$result['product_old_price'].'</td>
                         <td class = "stock'.$result['id'].'" contenteditable>'.$result['product_stock_quantity'].'</td>
                         <td class = "discount'.$result['id'].'" contenteditable>'.$result['discount'].'</td>
                         <td class = ""><button class = "btn btn-success" onclick = "save('.$result['id'].')">Save</button></td>
-                        <td class = ""><button class = "btn btn-success" onclick = "del('.$result['id'].')">Save</button></td>
+                        <td class = ""><button class = "btn btn-danger" onclick = "del('.$result['id'].')">Delete</button></td>
                       </tr>
                         ';   
                     } 
@@ -385,6 +386,20 @@ $msg = null;
     var oprice = $('.oprice'+id).text();
     var stock = $('.stock'+id).text();
     var discount = $('.discount'+id).text();
+
+    if (name == '') {
+      alert('Product name cannot be empty')
+    } else if ( desc == '' ) {
+      alert('Product Description cannot be empty')
+    } else if ( desc == '' ) {
+      alert('Product New Price cannot be empty')
+    } else if ( desc == '' ) {
+      alert('Product Old Price cannot be empty')
+    } else if ( desc == '' ) {
+      alert('Product Stock cannot be empty')
+    } else if ( desc == '' ) {
+      alert('Product Discount cannot be empty')
+    }
 
     if (parseInt(discount) > 0) {
         console.log('hi');

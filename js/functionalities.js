@@ -205,7 +205,7 @@ function plus_one(id)  {
             if (response.message === "incremented") {
              
               $('.quantity-'+id).val(response.quantity);
-              $('.tt').text('$' + response.total)
+              $('.tt').text('₦' + response.total)
         } 
       },
         error: function (response) {
@@ -233,7 +233,7 @@ function minus_one (id) {
           if (response.message === "decremented") {
            
             $('.quantity-'+id).val(response.quantity);
-            $('.tt').text('$' + response.total)
+            $('.tt').text('₦' + response.total)
       } 
     },
       error: function (response) {
@@ -304,3 +304,85 @@ expand = (id) => {
       }
     });
 }
+
+$('.alert').hide();
+
+
+order2 = () => {
+  $.ajax({
+    type: "POST",
+    url: "order2_func.php",
+    dataType: "json",
+    success: function (response) {
+      location.reload();
+          $('.alert').text(response.message).show();
+          alert('Order has been made. CHeck your profile for your order tracking');
+    }
+  });
+}
+
+
+
+
+
+
+      //   var objjjj = {
+      //     "reference": "344818741",
+      //     "trans": "3221836742",
+      //     "status": "success",
+      //     "message": "Approved",
+      //     "transaction": "3221836742",
+      //     "trxref": "344818741",
+      //     "redirecturl": "?trxref=344818741&reference=344818741"
+      // };
+
+
+$('#editDetails').click( function (e) { 
+  e.preventDefault()
+
+
+        let fn = $('.fn').val();
+        let ln = $('.ln').val();
+        let ea = $('.ea').val();
+
+        $.ajax({
+          type: "POST",
+          url: "info.php",
+          data: {
+            'fname' : fn,
+            'lname' : ln,
+            'email' : ea
+          }, 
+          dataType: "JSON",
+          success: function (response) {
+            $('.alert').text(response.message).show();
+          }
+        });
+  
+} )
+
+$('#editPass').click( function (e) { 
+  e.preventDefault()
+
+
+        let cp = $('.cp').val();
+        let np = $('.np').val();
+        let cnp = $('.cnp').val();
+
+        $.ajax({
+          type: "POST",
+          url: "changepass.php",
+          data: {
+            'cp' : cp,
+            'np' : np,
+            'cnp' : cnp
+          }, 
+          dataType: "JSON",
+          success: function (response) {
+            $('.alert').text(response.message).show();
+              $(this).text('Edit'); 
+          }
+        });
+  
+} )
+

@@ -258,10 +258,10 @@ $msg = null;
                         echo '
                         <tr>
                         <td class = "id'.$result['id'].'" >'.$result['id'].'</td>
-                        <td class = "name'.$result['id'].'" contenteditable>'.$result['fname'].'</td>
-                        <td class = "desc'.$result['id'].'" contenteditable>'.$result['lname'].'</td>
-                        <td class = "nprice'.$result['id'].'" contenteditable>'.$result['email'].'</td>
-                        <td class = "nprice'.$result['id'].'" contenteditable>'.$result['user_type'].'</td>
+                        <td class = "name'.$result['id'].'">'.$result['fname'].'</td>
+                        <td class = "table-wrap desc'.$result['id'].'">'.$result['lname'].'</td>
+                        <td class = "nprice'.$result['id'].'">'.$result['email'].'</td>
+                        <td class = "nprice'.$result['id'].'">'.$result['user_type'].'</td>
 
                       </tr>
                         ';   

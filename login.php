@@ -108,10 +108,10 @@ if (isset($_POST['submit'])) {
                     <p class="text-medium">
                   </div>
                   <div class="cover-image">
-                    <img src="assets/images/auth/signin-image.svg" alt="" />
-                  </div>
+                      <img src="img/ee.png" alt="" class="" style=" height: 50%; "/>
+                </div>
                   <div class="shape-image">
-                    <img src="assets/images/auth/shape.svg" alt="" />
+                    <!-- <img src="assets/images/auth/shape.svg" alt="" /> -->
                   </div>
                 </div>
               </div>

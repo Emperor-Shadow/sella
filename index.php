@@ -62,7 +62,45 @@
 //  }
 //check if the user is a guest or not staart
 
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
+// //Load Composer's autoloader
+// require 'vendor/autoload.php';
+
+// //Create an instance; passing `true` enables exceptions
+// $mail = new PHPMailer(true);
+
+// try {
+//     //Server settings
+//     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+//     $mail->isSMTP();                                            //Send using SMTP
+//     $mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
+//     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+//     $mail->Username   = 'user@example.com';                     //SMTP username
+//     $mail->Password   = 'secret';                               //SMTP password
+//     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+//     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+//     //Recipients
+//     $mail->setFrom('from@example.com', 'Mailer');
+//     $mail->addAddress('damilolasaheeb@gmail.com', 'Joe User');     //Add a recipient
+//     $mail->addReplyTo('info@example.com', 'Information');
+//     $mail->addCC('cc@example.com');
+//     $mail->addBCC('bcc@example.com');
+
+//     //Content
+//     $mail->isHTML(true);                                  //Set email format to HTML
+//     $mail->Subject = 'Here is the subject';
+//     $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+//     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+//     $mail->send();
+//     echo 'Message has been sent';
+// } catch (Exception $e) {
+//     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,6 +130,7 @@
     <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
+		<link rel="stylesheet" href="AOS - Animate on scroll library_files/aos.css">
     
   </head>
   <body>
@@ -152,11 +191,11 @@
             <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
           </header>
           <div class="row">
-            <div class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-1.jpg" alt=""/><strong class="category-item-title">Clothes</strong></a>
+            <div data-aos="fade-up" class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-1.jpg" alt=""/><strong class="category-item-title">Clothes</strong></a>
             </div>
-            <div class="col-md-4"><a class="category-item mb-4" href="shop.php"><img class="img-fluid" src="img/cat-img-2.jpg" alt=""/><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-3.jpg" alt=""/><strong class="category-item-title">Watches</strong></a>
+            <div data-aos="fade-up" class="col-md-4"><a class="category-item mb-4" href="shop.php"><img class="img-fluid" src="img/cat-img-2.jpg" alt=""/><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-3.jpg" alt=""/><strong class="category-item-title">Watches</strong></a>
             </div>
-            <div class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-4.jpg" alt=""/><strong class="category-item-title">Electronics</strong></a>
+            <div data-aos="fade-up" class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="img/cat-img-4.jpg" alt=""/><strong class="category-item-title">Electronics</strong></a>
             </div>
           </div>
         </section>
@@ -311,47 +350,8 @@
           </div>
         </section>
       </div>
-      <footer class="bg-dark text-white">
-        <div class="container py-4">
-          <div class="row py-5">
-            <div class="col-md-4 mb-3 mb-md-0">
-              <h6 class="text-uppercase mb-3">Customer services</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a class="footer-link" href="#!">Help &amp; Contact Us</a></li>
-                <li><a class="footer-link" href="#!">Returns &amp; Refunds</a></li>
-                <li><a class="footer-link" href="#!">Online Stores</a></li>
-                <li><a class="footer-link" href="#!">Terms &amp; Conditions</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4 mb-3 mb-md-0">
-              <h6 class="text-uppercase mb-3">Company</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a class="footer-link" href="#!">What We Do</a></li>
-                <li><a class="footer-link" href="#!">Available Services</a></li>
-                <li><a class="footer-link" href="#!">Latest Posts</a></li>
-                <li><a class="footer-link" href="#!">FAQs</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <h6 class="text-uppercase mb-3">Social media</h6>
-              <ul class="list-unstyled mb-0">
-                <li><a class="footer-link" href="#!">Twitter</a></li>
-                <li><a class="footer-link" href="#!">Instagram</a></li>
-                <li><a class="footer-link" href="#!">Tumblr</a></li>
-                <li><a class="footer-link" href="#!">Pinterest</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="border-top pt-4" style="border-color: #1d1d1d !important">
-            <div class="row">
-              <div class="col-md-6 text-center text-md-start">
-                <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-      </footer>
+      <?php require_once('footer.php'); ?>
+
       <!-- JavaScript files-->
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="vendor/glightbox/js/glightbox.min.js"></script>
@@ -361,7 +361,14 @@
       <script src="js/front.js"></script>
       <script src="js/functionalities.js" defer></script>
       <script src="js/jquery.com_jquery-3.7.0.js"></script>
-      <script>
+      <script src="AOS - Animate on scroll library_files/jquery-1.11.3.min.js.download"></script>
+		<script src="AOS - Animate on scroll library_files/highlight.min.js.download"></script>
+		<script src="AOS - Animate on scroll library_files/aos.js.download"></script>
+          <script>
+        AOS.init({
+				easing: 'ease-out-back',
+				duration: 1000
+			});
         // ------------------------------------------------------- //
         //   Inject SVG Sprite - 
         //   see more here 
