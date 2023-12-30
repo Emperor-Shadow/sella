@@ -3,6 +3,7 @@
     require_once("php_files/functions.php");
 
     $user_id = $_SESSION['id'];
+    $amt_paid = $_SESSION['total'];
 
     $trackid = str_pad(mt_rand(0 , 9999) , 4, 'O' , STR_PAD_LEFT);
 
@@ -32,6 +33,7 @@
 
                                 $ddd = "DELETE FROM `cart` WHERE customer_id = '$user_id'";
                                 $rdo = mysqli_query($connection , $ddd);
+                                $_SESSION['total'] = 0;
                                 $data = [ 'code' => '200', 'message' => 'success' ];
                                 
                         } else {

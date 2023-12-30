@@ -1,6 +1,21 @@
 <?php 
     require_once("php_files/connection.php");
     require_once("php_files/functions.php");
+    use Mailtrap\Config;
+    use Mailtrap\EmailHeader\CategoryHeader;
+    use Mailtrap\EmailHeader\CustomVariableHeader;
+    use Mailtrap\Helper\ResponseHelper;
+    use Mailtrap\MailtrapClient;
+    use Symfony\Component\Mime\Address;
+    use Symfony\Component\Mime\Email;
+    use Symfony\Component\Mime\Header\UnstructuredHeader;
+    
+    require __DIR__ . '/vendor/autoload.php';
+
+
+
+
+
     $user_id = $_SESSION['id'];
     $email = $_SESSION['email'];
     $name = $_SESSION['fname'];
@@ -51,7 +66,6 @@
     <div class="page-holder">
       <!-- navbar-->
      <?php require_once('nav.php') ?>
-
       <!--  Modal -->
       <div class="modal fade" id="productView" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">

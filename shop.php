@@ -1,7 +1,10 @@
 <?php
   require_once("php_files/connection.php");
   require_once("php_files/functions.php");
-
+  use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
   $user_id = $_SESSION['id'];
   $fname = $_SESSION['fname'];
   $lname = $_SESSION['lname'];
@@ -13,6 +16,9 @@
       session_destroy();
       header("location: login.php");
   }
+
+
+   
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +45,8 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">		
+    <link rel="stylesheet" href="AOS - Animate on scroll library_files/aos.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
   </head>
@@ -147,6 +154,41 @@
             </div>
           </div>
         </section>
+        <?php
+      //  $mail = new PHPMailer(true);
+
+      //  try {
+      //      //Server settings
+      //      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+      //      $mail->isSMTP();                                            //Send using SMTP
+      //      $mail->Host       = 'sandbox.smtp.mailtrap.io';                     //Set the SMTP server to send through
+      //      $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+      //      $mail->Username   = '7d6a4551ce8563';                     //SMTP username
+      //      $mail->Password   = '21b54ca7564b29';                               //SMTP password
+      //      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+      //      $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+       
+      //      //Recipients
+      //      $mail->setFrom('from@example.com', 'Mailer');
+      //      $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
+      //      $mail->addAddress('ellen@example.com');               //Name is optional
+      //      $mail->addReplyTo('info@example.com', 'Information');
+      //      $mail->addCC('cc@example.com');
+      //      $mail->addBCC('bcc@example.com');
+      //        //Optional name
+       
+      //      //Content
+      //      $mail->isHTML(true);                                  //Set email format to HTML
+      //      $mail->Subject = 'Here is the subject';
+      //      $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+      //      $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+       
+      //      $mail->send();
+      //      echo 'Message has been sent';
+      //  } catch (Exception $e) {
+      //      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      //  }
+        ?>
       </div>
       <?php require_once('footer.php'); ?>
 
@@ -158,7 +200,10 @@
       <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
       <script src="js/front.js"></script>
       <script src="js/functionalities.js" defer></script>
-      <script src="js/jquery.com_jquery-3.7.0.js"></script>
+      <script src="js/jquery.com_jquery-3.7.0.js"></script>      
+      <script src="AOS - Animate on scroll library_files/jquery-1.11.3.min.js.download"></script>
+		  <script src="AOS - Animate on scroll library_files/highlight.min.js.download"></script>
+		  <script src="AOS - Animate on scroll library_files/aos.js.download"></script>
      
       <script>
         // ------------------------------------------------------- //

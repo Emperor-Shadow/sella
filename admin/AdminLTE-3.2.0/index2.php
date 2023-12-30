@@ -245,42 +245,46 @@
                     <div class="info-box mb-3 bg-warning">
                       <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
-                      <div class="info-box-content col-5">
-                        <span class="info-box-text">Inventory</span>
-                        <span class="info-box-number">5,200</span>
+                      
+                        <div class="info-box-content col-5">
+                        <a href="inventory.php" class="text-white"><span class="info-box-text">Inventory</span></a>
                       </div>
+                      
                       <!-- /.info-box-content col-5 -->
                     </div>
-                    <!-- /.info-box -->
-                    <div class="info-box mb-3 bg-success">
-                      <span class="info-box-icon"><i class="far fa-heart"></i></span>
-
-                      <div class="info-box-content col-5">
-                        <span class="info-box-text">Mentions</span>
-                        <span class="info-box-number">92,050</span>
-                      </div>
-                      <!-- /.info-box-content -->
+                    <div class="col-md-12">
+              <h4 class="text-center bg-dark py-3">Messages</h4>
+              <div class="bg-dark">
+              <ul class="contacts-list">
+              <?php
+                  $db = new PDO('mysql:host=localhost;dbname=ecommerce' , 'root' , '' );
+                  $allmsg1 = $db->query("SELECT DISTINCT user_id FROM messages");
+                  while ($row1 = $allmsg1->fetch(PDO::FETCH_ASSOC)) {
+                    $uid = $row1['user_id'];
+                    $allmsg = $db->query("SELECT * FROM messages WHERE sender = '$uid' OR reciever = '$uid' ORDER BY time DESC LIMIT 1");
+                  while ($row = $allmsg->fetch(PDO::FETCH_ASSOC)) {
+                    $time = date("d M h:i a", $row['time']);
+                    
+                    echo '
+                    <li>
+                  <a href = "messages.php?id='.$row['user_id'].'">
+                  <input type="hidden" class="'.$row['user_id'].'" value="'.$row['user_id'].'">
+                    <div class="contacts-list-info ms-0">
+                      <span class="contacts-list-name">
+                        '.$time.'
+                        <small class="contacts-list-date float-right">2/28/2015</small>
+                      </span>
+                      <span class="contacts-list-msg">'.$row['message'].'</span>
                     </div>
-                    <!-- /.info-box -->
-                    <div class="info-box mb-3 bg-danger">
-                      <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
-
-                      <div class="info-box-content">
-                        <span class="info-box-text">Downloads</span>
-                        <span class="info-box-number">114,381</span>
-                      </div>
-                      <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                    <div class="info-box mb-3 bg-info">
-                      <span class="info-box-icon"><i class="far fa-comment"></i></span>
-
-                      <div class="info-box-content">
-                        <span class="info-box-text">Direct Messages</span>
-                        <span class="info-box-number">163,921</span>
-                      </div>
-                      <!-- /.info-box-content -->
-                    </div>
+                  </a>
+                </li>
+                    ';
+                  }
+                  }
+              ?>     
+              </ul>
+            </div>
+              </div>
                     <!-- /.info-box -->
 
           </div>
@@ -360,18 +364,11 @@
                 <!-- /.table-responsive -->
               </div>
               <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-              </div>
               <!-- /.card-footer -->
             </div>
 
-            
 
-            <!-- PRODUCT LIST -->
-           
-            <!-- /.card -->
+            
           </div>
           <!-- /.col -->
         </div>
@@ -389,6 +386,31 @@
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
+
+
+  <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="chart-responsive">
+                      <canvas id="pieChart" height="150"></canvas>
+                    </div>
+                    <!-- ./chart-responsive -->
+                  </div>
+                  <!-- /.col -->
+                  <!-- <div class="col-md-4">
+                    <ul class="chart-legend clearfix">
+                      <li><i class="far fa-circle text-danger"></i> Chrome</li>
+                      <li><i class="far fa-circle text-success"></i> IE</li>
+                      <li><i class="far fa-circle text-warning"></i> FireFox</li>
+                      <li><i class="far fa-circle text-info"></i> Safari</li>
+                      <li><i class="far fa-circle text-primary"></i> Opera</li>
+                      <li><i class="far fa-circle text-secondary"></i> Navigator</li>
+                    </ul>
+                  </div> -->
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
 </div>
 <!-- ./wrapper -->
 
@@ -415,5 +437,38 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
+<script>
+  // Get context with jQuery - using jQuery's .get() method.
+  // var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+  // var pieData = {
+  //   labels: [
+  //     'Chrome',
+  //     'IE',
+  //     'FireFox',
+  //     'Safari',
+  //     'Opera',
+  //     'Navigator'
+  //   ],
+  //   datasets: [
+  //     {
+  //       data: [700, 500, 400, 600, 300, 100],
+  //       backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
+  //     }
+  //   ]
+  // }
+  // var pieOptions = {
+  //   legend: {
+  //     display: false
+  //   }
+  // }
+  // // Create pie or douhnut chart
+  // // You can switch between pie and douhnut using the method below.
+  // // eslint-disable-next-line no-unused-vars
+  // var pieChart = new Chart(pieChartCanvas, {
+  //   type: 'doughnut',
+  //   data: pieData,
+  //   options: pieOptions
+  // })
+</script>
 </body>
 </html>

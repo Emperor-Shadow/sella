@@ -391,13 +391,13 @@ $msg = null;
       alert('Product name cannot be empty')
     } else if ( desc == '' ) {
       alert('Product Description cannot be empty')
-    } else if ( desc == '' ) {
+    } else if ( nprice == '' ) {
       alert('Product New Price cannot be empty')
-    } else if ( desc == '' ) {
+    } else if ( oprice == '' ) {
       alert('Product Old Price cannot be empty')
-    } else if ( desc == '' ) {
+    } else if ( stock == '' ) {
       alert('Product Stock cannot be empty')
-    } else if ( desc == '' ) {
+    } else if ( discount == '' ) {
       alert('Product Discount cannot be empty')
     }
 
@@ -406,9 +406,11 @@ $msg = null;
             
         var discount_price = (discount / 100) * nprice ;
        var new_price = (nprice - discount_price).toFixed(2) ;
+       var old_price = nprice ;
         } else {
             discount_price = 0;
             new_price = nprice;
+            old_price = nprice;
         }
 
         $.ajax({
@@ -419,7 +421,7 @@ $msg = null;
                 'name' : name ,
                 'desc' : desc, 
                 'nprice' : new_price ,
-                'oprice' : oprice ,
+                'oprice' : old_price ,
                 'stock' : stock ,
                 'discount' : discount ,
             },

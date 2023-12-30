@@ -288,7 +288,7 @@ if (isset($_POST['add_cat'])) {
                 <form class="form-'.$result['id'].'">
                  <tr class="tt-'.$result['id'].'">
                     <td class = "td-'.$result['id'].'">'.$result['category_name'].'</td>
-                    <td><input type="text" name="" id="" class="form-control input-'.$result['id'].'"></td>
+                    <td><input type="text" required name="" id="" class="form-control input-'.$result['id'].'"></td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
                         <a href="#" class="btn btn-info"><i class="fas fa-save edit-'.$result['id'].'" onclick = "edit('.$result['id'].')" ></i></a>
@@ -371,8 +371,10 @@ if (isset($_POST['add_cat'])) {
 <script>
     //edit and save categories to database start//
     edit = (id) => {
-
-$.ajax({
+      if (id == "") {
+        alert('Cant be empty')
+      } else {
+        $.ajax({
     type: "post",
     url: "edit_cat.php",
     data: {
@@ -390,6 +392,8 @@ $.ajax({
         }
     }
 });
+      }
+
 }
 //get all categories to be displayed for editing end//
 

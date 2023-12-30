@@ -306,36 +306,18 @@ expand = (id) => {
 }
 
 $('.alert').hide();
-
-
-order2 = () => {
-  $.ajax({
-    type: "POST",
-    url: "order2_func.php",
-    dataType: "json",
-    success: function (response) {
-      location.reload();
-          $('.alert').text(response.message).show();
-          alert('Order has been made. CHeck your profile for your order tracking');
-    }
-  });
+order = () => {
+    $.ajax({
+      type: "POST",
+      url: "order_func.php",
+      dataType: "json",
+      success: function (response) {
+        location.reload()
+            $('.alert').text(response.message).show();
+            alert('Order has been made. CHeck your profile for your order tracking');
+      }
+    });
 }
-
-
-
-
-
-
-      //   var objjjj = {
-      //     "reference": "344818741",
-      //     "trans": "3221836742",
-      //     "status": "success",
-      //     "message": "Approved",
-      //     "transaction": "3221836742",
-      //     "trxref": "344818741",
-      //     "redirecturl": "?trxref=344818741&reference=344818741"
-      // };
-
 
 $('#editDetails').click( function (e) { 
   e.preventDefault()

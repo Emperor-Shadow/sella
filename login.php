@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title>Sign Up</title>
+    <title>Login</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -140,13 +140,13 @@ if (isset($_POST['submit'])) {
                         </div>
                       </div>
                       <!-- end col -->
-                      <div class="col-12">
+                      <!-- <div class="col-12">
                         <div class="form-check checkbox-style mb-30">
                           <input class="form-check-input" type="checkbox" name="remember" value="" id="checkbox-not-robot" />
                           <label class="form-check-label" for="checkbox-not-robot">
                             Remember me</label>
                         </div>
-                      </div>
+                      </div> -->
                       <!-- end col -->
                       <div class="col-12">
                         <div class="button-group d-flex justify-content-center flex-wrap">

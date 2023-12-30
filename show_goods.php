@@ -52,41 +52,6 @@
                 if (strlen($new_name) > 20) {
                     $new_name = substr($new_name , 0,20).'...';
                 }
-
-                //     echo '<div class="card md:w-1/4 w-1/2 md:inline-block hover:shadow-lg text-center">
-
-                //         <div class="card-img relative">
-
-                //         <input type="hidden" value="'.$fetch_result['id'].'">
-                //             <img src="../product_images/'.$fetch_result['product_picture'].'" alt="">
-                //             <span style="z-index=: 10; top: 0; right: 0;" class="rounded-full flex text-center items-center justify-center inline-block h-10 w-10 absolute bg-red-500">-'.$fetch_result['discount'].percent.'</span>
-                //         </div>
-                //         <div class="card-footer">
-                //                 <p>'.$new_name.'</p>
-                                
-                                
-                                
-                //                 <span class="price inline-block">
-                //                     <p class="new-price">'.dollar.$fetch_result['product_new_price'].'</p>
-                //                     <p class="previous-price">'.dollar.$fetch_result['product_old_price'].'</p>
-                //                 </span>
-                                
-                                
-                //                 <span class="text-xs inline-block" style="float:right;">
-                //                 '.$availability.'
-                //                 </span>
-                                
-                                
-                                
-                //             <div class="btn-action w-full flex space-apart" style="gap: 5px";>
-                //                 <button class=" inline-block float-left text-xs add-to-cart rounded add-to-cart-'.$fetch_result['id'].'"  id="add-to-cart" onclick="add_to_cart('.$fetch_result['id'].')">'.$btn_message.'</button>
-                //                 <button class=" inline-block float-right text-xs view-details" id="view-details"><a href = "product_detail.php?product_id='.+ $fetch_result['id'].'"> View details </a></button>
-                //             </div>
-                //             </div> 
-                            
-                // </div>';
-                        // print_r($fetch_result);
-
                         echo '
                         <div class="col-lg-4 col-sm-6">
                         <div class="product text-center">

@@ -31,9 +31,6 @@ if (isset($_POST['add_to_product_btn'])) {
      if (strlen($product_description) > 200) {
         echo "<script> alert('Description must not exceed 200 characters') </script>";
      } else {
-      if ((int) $product_discount == 0) {
-        $product_old_price = $product_new_price;
-     }
 
      $product_image_name = $_FILES['product_picture']['name'];
      $product_image_type = $_FILES['product_picture']['type'];
@@ -70,9 +67,9 @@ if (isset($_POST['add_to_product_btn'])) {
                             //if product doesnt exist. then add product info to the database
                             if ($check_product_row == 0) {
                                 //a query to load user information into the database
-                                            $add_product_query = "INSERT INTO `products`( `product_name`, `product_category`, `product_description`, `product_new_price`, `product_old_price`, `product_stock_quantity`, `discount`, `product_picture`) VALUES (?,?,?,?,?,?,?,?)";
+                                            $add_product_query = "INSERT INTO `products`( `product_name`, `product_category`, `product_description`, `product_new_price`, `product_stock_quantity`, `discount`, `product_picture`) VALUES (?,?,?,?,?,?,?,?)";
                                             $stmt_product = mysqli_prepare($connection , $add_product_query);
-                                            mysqli_stmt_bind_param($stmt_product , "ssssssss" , $product_name , $product_category , $product_description, $product_new_price ,  $product_old_price  , $product_quantity , $product_discount, $product_new_image_name );
+                                            mysqli_stmt_bind_param($stmt_product , "sssssss" , $product_name , $product_category , $product_description, $product_new_price   , $product_quantity , $product_discount, $product_new_image_name );
                                             mysqli_stmt_execute($stmt_product);
                                             $row_product =mysqli_stmt_affected_rows($stmt_product);
                 
@@ -335,10 +332,6 @@ if (isset($_POST['add_to_product_btn'])) {
               <div class="form-group">
                 <label for="inputProjectLeader">Stock quantity</label>
                 <input type="" name="product_quantity" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Discount</label>
-                <input type="" name="product_discount" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">Picture</label>
